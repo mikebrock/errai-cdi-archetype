@@ -211,7 +211,7 @@
   	  <profile>
             <id>jboss6</id>
             <properties>
-                <webDescriptor>jboss6</webDescriptor>
+                <webDescriptor>jboss</webDescriptor>
             </properties>
             <dependencies>
 
