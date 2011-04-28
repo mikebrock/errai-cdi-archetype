@@ -357,7 +357,7 @@
             <version>${gwt.maven}</version>
             <configuration>
                 <inplace>true</inplace>
-                <logLevel>TRACE</logLevel>
+                <logLevel>INFO</logLevel>
                 <runTarget>App.html</runTarget>
                 <warSourceDirectory>war</warSourceDirectory>
                 <extraJvmArgs>-Xmx512m -DDEBUG</extraJvmArgs>
