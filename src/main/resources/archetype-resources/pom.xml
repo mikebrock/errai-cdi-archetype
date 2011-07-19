@@ -334,16 +334,11 @@
                     <version>${errai.version}</version>
                 </dependency>
 
-                <dependency>
-                    <groupId>org.jboss.errai</groupId>
-                    <artifactId>errai-cdi-jetty</artifactId>
-                    <version>${errai.version}</version>
-                </dependency>
 
                 <!-- exclude development tools -->
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
-                    <artifactId>errai-cdi-jboss</artifactId>
+                    <artifactId>errai-cdi-jetty</artifactId>
                     <version>${errai.version}</version>
                     <scope>provided</scope>
                 </dependency>
@@ -430,6 +425,10 @@
                                     <tasks>
                                         <copy file="src/jboss/web.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
+
+                                        <copy file="src/jboss/jboss-beans.xml" toDir="war/META-INF"
+                                                                               overwrite="true"/>
+
 
                                         <delete file="war/WEB-INF/jetty-env.xml"/>
                                         <delete file="war/WEB-INF/classes/jndi.properties"/>
@@ -528,12 +527,6 @@
                     <version>${errai.version}</version>
                 </dependency>
 
-                <dependency>
-                    <groupId>org.jboss.errai</groupId>
-                    <artifactId>errai-cdi-jboss</artifactId>
-                    <version>${errai.version}</version>
-                </dependency>
-
                 <!-- exclude development tools -->
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
@@ -623,6 +616,10 @@
                                     <tasks>
                                         <copy file="src/jboss/web.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
+
+                                        <copy file="src/jboss/jboss-beans.xml" toDir="war/META-INF"
+                                                                               overwrite="true"/>
+
 
                                         <delete file="war/WEB-INF/jetty-env.xml"/>
                                         <delete file="war/WEB-INF/classes/jndi.properties"/>
