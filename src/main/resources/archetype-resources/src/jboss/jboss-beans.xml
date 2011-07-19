@@ -6,7 +6,7 @@
 
         <!--
         Make Sure the JMS provider is available before Errai boots
-        in case we pull in the JMS binding extensions
+        in case we pull in the JMS binding extensions.
         -->
         <depends>jboss.jca:name=JmsXA,service=ManagedConnectionFactory</depends>
     </bean>
