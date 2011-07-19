@@ -43,7 +43,7 @@
 
     <resource-env-ref>
         <description>Object factory for the Errai Service</description>
-        <resource-env-ref-name>Errai</resource-env-ref-name>
+        <resource-env-ref-name>ErraiService</resource-env-ref-name>
         <resource-env-ref-type>org.jboss.errai.bus.server.service.ErraiService</resource-env-ref-type>
     </resource-env-ref>
 

@@ -15,8 +15,8 @@
  */
 package ${package}.server;
 
-import ${package}.client.MessageEvent;
-import ${package}.client.ResponseEvent;
+import ${package}.client.shared.MessageEvent;
+import ${package}.client.shared.ResponseEvent;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;

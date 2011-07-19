@@ -153,13 +153,15 @@
             <version>${gwt.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
-            <version>${gwt.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
+        <!--
+                <dependency>
+                    <groupId>com.google.gwt</groupId>
+                    <artifactId>gwt-dev</artifactId>
+                    <version>${gwt.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+        -->
         <!-- Runtime / Container dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -193,9 +195,9 @@
                                 <phase>prepare-package</phase>
                                 <configuration>
                                     <tasks>
-                                        <copy file="src/jetty/web.xml" toDir="target/tagcould/WEB-INF"
+                                        <copy file="src/jetty/web.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
-                                        <copy file="src/jetty/jetty-env.xml" toDir="target/tagcloud/WEB-INF"
+                                        <copy file="src/jetty/jetty-env.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
                                     </tasks>
                                 </configuration>
@@ -284,13 +286,6 @@
 
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
-                    <artifactId>errai-workspaces</artifactId>
-                    <version>${errai.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.jboss.errai</groupId>
                     <artifactId>errai-widgets</artifactId>
                     <scope>provided</scope>
                     <version>${errai.version}</version>
@@ -339,10 +334,16 @@
                     <version>${errai.version}</version>
                 </dependency>
 
-                <!-- exclude development tools -->
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
                     <artifactId>errai-cdi-jetty</artifactId>
+                    <version>${errai.version}</version>
+                </dependency>
+
+                <!-- exclude development tools -->
+                <dependency>
+                    <groupId>org.jboss.errai</groupId>
+                    <artifactId>errai-cdi-jboss</artifactId>
                     <version>${errai.version}</version>
                     <scope>provided</scope>
                 </dependency>
@@ -427,11 +428,11 @@
                                 <phase>prepare-package</phase>
                                 <configuration>
                                     <tasks>
-                                        <copy file="src/jboss/web.xml" toDir="target/tagcloud/WEB-INF"
+                                        <copy file="src/jboss/web.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
 
-                                        <delete file="target/tagcloud/WEB-INF/jetty-env.xml"/>
-                                        <delete file="target/tagcloud/WEB-INF/classes/jndi.properties"/>
+                                        <delete file="war/WEB-INF/jetty-env.xml"/>
+                                        <delete file="war/WEB-INF/classes/jndi.properties"/>
                                     </tasks>
                                 </configuration>
                                 <goals>
@@ -486,13 +487,6 @@
 
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
-                    <artifactId>errai-workspaces</artifactId>
-                    <version>${errai.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.jboss.errai</groupId>
                     <artifactId>errai-widgets</artifactId>
                     <scope>provided</scope>
                     <version>${errai.version}</version>
@@ -531,6 +525,12 @@
                 <dependency>
                     <groupId>org.jboss.errai</groupId>
                     <artifactId>errai-cdi</artifactId>
+                    <version>${errai.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.jboss.errai</groupId>
+                    <artifactId>errai-cdi-jboss</artifactId>
                     <version>${errai.version}</version>
                 </dependency>
 
@@ -621,11 +621,11 @@
                                 <phase>prepare-package</phase>
                                 <configuration>
                                     <tasks>
-                                        <copy file="src/jboss/web.xml" toDir="target/tagcloud/WEB-INF"
+                                        <copy file="src/jboss/web.xml" toDir="war/WEB-INF"
                                               overwrite="true"/>
 
-                                        <delete file="target/tagcloud/WEB-INF/jetty-env.xml"/>
-                                        <delete file="target/tagcloud/WEB-INF/classes/jndi.properties"/>
+                                        <delete file="war/WEB-INF/jetty-env.xml"/>
+                                        <delete file="war/WEB-INF/classes/jndi.properties"/>
                                     </tasks>
                                 </configuration>
                                 <goals>
@@ -681,6 +681,7 @@
                     <warSourceDirectory>war</warSourceDirectory>
                     <webappDirectory>war</webappDirectory>
                     <webXml>src/jetty/web.xml</webXml>
+                    <packagingExcludes>**/javax/**/*.*,**/client/local/**/*.class</packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>
